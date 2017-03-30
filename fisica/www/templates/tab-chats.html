@@ -1,16 +1,54 @@
-<ion-view view-title="Chats">
-  <ion-content>
-    <ion-list>
-      <ion-item class="item-remove-animate item-avatar item-icon-right" ng-repeat="chat in chats" type="item-text-wrap" href="#/tab/chats/{{chat.id}}">
-        <img ng-src="{{chat.face}}">
-        <h2>{{chat.name}}</h2>
-        <p>{{chat.lastText}}</p>
-        <i class="icon ion-chevron-right icon-accessory"></i>
+<ion-view view-title="Calculadora de Força Magnética">
+<ion-content >
+<h4 class="padding">Deixe o campo que você quer calcular em branco.</h4>
+<div class="list">
+  <label class="item item-input item-floating-label">
+    <span class="input-label">Velocidade (m/s)</span>
+    <input type="number" ng-model="data.velocidade" placeholder="Velocidade (m/s)">
+  </label>
+  <label class="item item-input item-floating-label">
+    <span class="input-label">Campo Magnético (Tesla)</span>
+    <input type="number" ng-model="data.campo" placeholder="Campo Magnético (Tesla)">
+  </label>
+  <div class="item row">
+    <div class= "col">
+      <label class="item item-input item-floating-label">
+        <span class="input-label">Carga (Coulomb)</span>
+        <input type="number" ng-model="data.carga" placeholder="Carga (Coulomb)">
+      </label>
+    </div>
+    <div class = "col">
+     <label  style="height: 100%" class="item item-input">
+      <span class="input-label">x10^</span>
+      <input ng-model="data.expCarga" type="number">
+    </label>
+  </div>
+</div>
+<label class="item item-input item-floating-label">
+  <span class="input-label">Ângulo (Graus)</span>
+  <input type="number" ng-model="data.angulo" placeholder="Ângulo (Graus)">
+</label>
 
-        <ion-option-button class="button-assertive" ng-click="remove(chat)">
-          Delete
-        </ion-option-button>
-      </ion-item>
-    </ion-list>
-  </ion-content>
+<div class="item row">
+  <div class= "col">
+  <label class="item item-input item-floating-label">
+      <span class="input-label">Força Magnética (Newton)</span>
+      <input type="number" ng-model="data.magnetica" placeholder="Força Magnética (Newton)">
+    </label>
+  </div>
+  <div class = "col">
+   <label style="height: 100%"  class="item item-input">
+    <span class="input-label">x10^</span>
+    <input ng-model="data.expForca" type="number">
+  </label>
+</div>
+</div>
+</div>
+<button class="button button-block button-balanced" ng-click="calculaForcaMagnetica()">
+  Calcular
+</button>
+<button class="button button-block button-positive" ng-click="limparCampos()">
+  Limpar os campos
+</button>
+</ion-content>
 </ion-view>
